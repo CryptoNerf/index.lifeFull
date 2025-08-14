@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Вход — index.life</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'main/login.css' %}">
+</head>
+<body>
+  <div class="card">
+    <h1>Войти в index.life</h1>
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="errors">
+          {% for err in form.non_field_errors %}{{ err }}<br>{% endfor %}
+        </div>
+      {% endif %}
+
+      {{ form.username }}
+      {% if form.username.errors %}
+        <div class="field-errors">
+          {% for err in form.username.errors %}{{ err }}{% endfor %}
+        </div>
+      {% endif %}
+
+      {{ form.password }}
+      {% if form.password.errors %}
+        <div class="field-errors">
+          {% for err in form.password.errors %}{{ err }}{% endfor %}
+        </div>
+      {% endif %}
+
+      {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+
+      <button class="btn" type="submit">Войти</button>
+    </form>
+
+    <div class="muted">
+      Нет аккаунта? <a href="{% url 'register' %}">Зарегистрируйтесь</a>
+    </div>
+  </div>
+</body>
+</html>

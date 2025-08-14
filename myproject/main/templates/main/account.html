@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Account — index.life</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'main/edit_day.css' %}">
+  <link rel="stylesheet" href="{% static 'main/account.css' %}">
+</head>
+<body>
+  <div class="top-menu">
+    <a href="{% url 'mood_grid' %}" class="menu-link">index.life</a>
+    <a href="{% url 'account' %}" class="menu-link">account</a>
+  </div>
+  <div style="margin-top:120px;text-align:center;">
+    <h2>Account info</h2>
+    <div style="font-size:18px;margin-bottom:24px;">{{ user.username }}</div>
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button class="save-btn" type="submit">Log out</button>
+    </form>
+  </div>
+  <footer class="main-footer">Copyright 2025 Émile Alexanyan</footer>
+</body>
+</html>

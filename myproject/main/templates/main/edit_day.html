@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>my day index</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'main/edit_day.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="top-menu">
+      <a href="{% url 'mood_grid' %}" class="menu-link">index.life</a>
+      <a href="{% url 'account' %}" class="menu-link">account</a>
+    </nav>
+  </header>
+  <div class="center-content">
+    <h1 class="header" style="font-weight:normal;">my day index</h1>
+    <form method="post" novalidate class="form-block">
+      {% csrf_token %}
+      <div class="cubes-row" id="rating-cubes">
+        {% for i in "1234567890"|make_list %}
+          <span class="cube{% if form.rating.value|stringformat:'i' >= i %} filled{% endif %}" data-value="{{ i }}"></span>
+        {% endfor %}
+      </div>
+      <input type="hidden" name="rating" id="rating-input" value="{{ form.rating.value }}">
+      <div><p style="font-size:20px;">my day comment</p></div>
+      <div class="textarea-block">
+        {{ form.note }}
+        {% if form.note.errors %}
+          <div class="field-errors">{% for err in form.note.errors %}{{ err }}{% endfor %}</div>
+        {% endif %}
+      </div>
+      <button class="save-btn" type="submit">save</button>
+    </form>
+  </div>
+  <footer class="main-footer">Copyright 2025 Émile Alexanyan</footer>
+  <script>
+    const cubes = document.querySelectorAll('.cube');
+    const ratingInput = document.getElementById('rating-input');
+    let selected = parseInt(ratingInput.value) || 0;
+
+    function fillCubes(count, className) {
+      cubes.forEach((c, idx) => {
+        c.classList.remove('filled', 'hovered');
+        if (idx < count) c.classList.add(className);
+      });
+    }
+
+    fillCubes(selected, 'filled');
+
+    cubes.forEach((cube, idx) => {
+      cube.addEventListener('mouseenter', function() {
+        fillCubes(idx + 1, 'hovered');
+      });
+      cube.addEventListener('mouseleave', function() {
+        fillCubes(selected, 'filled');
+      });
+      cube.addEventListener('click', function() {
+        selected = idx + 1;
+        ratingInput.value = selected;
+        fillCubes(selected, 'filled');
+      });
+    });
+  </script>
+</body>
+</html>

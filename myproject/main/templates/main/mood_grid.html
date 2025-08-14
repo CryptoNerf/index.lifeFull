@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>calendar 2025</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'main/calendar.css' %}">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="top-menu">
+      <a href="{% url 'mood_grid' %}" class="menu-link">index.life</a>
+      <a href="{% url 'account' %}" class="menu-link">account</a>
+    </nav>
+  </header>
+  <p class="calendar-title" style="font-weight: normal;">calendar<sup>2025</sup></p>
+  <main>
+    <div class="calendar-grid">
+      {% for month in months %}
+        <div class="month-block">
+          <div class="month-grid">
+            {% for day in month.days %}
+              <a href="{% url 'edit_day' day.date %}" class="cube {% if day.filled %}filled{% endif %}" title="{{ day.date }}"></a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+  <footer class="main-footer">Copyright 2025 Émile Alexanyan</footer>
+</body>
+</html>

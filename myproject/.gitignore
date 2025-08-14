@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.db
+local_settings.py
+settings_local.py
+.env
+.env.*
+*.env
+/staticfiles/
+/media/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Other
+*.bak
+*.swp
+*.swo
+
+# Node
+node_modules/
+
+# Test & Coverage
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Backup
+*.orig
+
+git rm -r --cached .
+git add .
+git status
+# Git
+.git/

@@ -1,0 +1,157 @@
+/* ========== Layout & Structure ========== */
+html, body {
+  height: 100%;
+}
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+}
+.top-menu {
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  display: flex;
+  gap: 24px;
+  font-size: 18px;
+}
+.menu-link {
+  color: #222;
+  text-decoration: none;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+.menu-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.center-content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  text-align: center;
+  font-size: 20px;
+}
+
+/* ========== Rating Cubes ========== */
+.cubes-row {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  gap: 6px;
+}
+.cube {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #000;
+  background: #fff;
+  margin: 0 1px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.cube.filled {
+  background: #000;
+}
+.cube.hovered {
+  background: #222;
+}
+
+/* ========== Form & Textarea ========== */
+.form-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.textarea-block {
+  width: 500px;
+  margin-bottom: 16px;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  border: 1px solid #222;
+  padding: 8px;
+  box-sizing: border-box;
+  resize: none;
+}
+.save-btn {
+  width: 80px;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 6px 0;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ========== Footer ========== */
+.main-footer {
+  flex-shrink: 0;
+  width: 100%;
+  text-align: center;
+  color: #222;
+  font-size: 16px;
+  background: #fff;
+  z-index: 10;
+  padding: 10px 0;
+  margin: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+@media (max-width: 600px) {
+  .header {
+    margin-top: 40px;
+  }
+  .top-menu {
+    top: 20px;
+    left: 10px;
+    font-size: 15px;
+    gap: 12px;
+  }
+  .cubes-row {
+    gap: 4px;
+    margin: 16px 0;
+  }
+  .cube {
+    width: 13px;
+    height: 13px;
+    border-width: 1px;
+  }
+  .textarea-block {
+    width: 95vw;
+    min-width: 0;
+    margin-bottom: 10px;
+  }
+  textarea {
+    font-size: 14px;
+    height: 70px;
+    padding: 6px;
+  }
+  .save-btn {
+    width: 70px;
+    font-size: 14px;
+    padding: 5px 0;
+  }
+  .main-footer {
+    font-size: 13px;
+    bottom: 10px;
+  }
+}

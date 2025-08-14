@@ -1,0 +1,120 @@
+/* ========== Layout & Structure ========== */
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  width: 100%;
+  background: #fff;
+  z-index: 20;
+}
+.top-menu {
+  display: flex;
+  gap: 24px;
+  font-size: 18px;
+  position: absolute;
+  top: 60px;
+  left: 70px;
+}
+.menu-link {
+  color: #222;
+  text-decoration: none;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+.menu-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.calendar-title {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========== Calendar Grid ========== */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 220px));
+  gap: 48px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+@media (max-width: 900px) {
+  .calendar-grid {
+    grid-template-columns: repeat(2, minmax(0, 220px));
+  }
+}
+@media (max-width: 600px) {
+  .calendar-grid {
+    grid-template-columns: minmax(0, 220px);
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 0 4vw;
+  }
+}
+
+/* ========== Month Block ========== */
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 20px);
+  gap: 8px;
+  justify-content: center;
+}
+@media (max-width: 600px) {
+  .month-grid {
+    grid-template-columns: repeat(7, 22px);
+    gap: 7px;
+  }
+}
+
+/* ========== Day Cube ========== */
+.cube {
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border: 1px solid #000000;
+  display: inline-block;
+  margin: 0;
+  transition: background 0.15s;
+}
+.cube.filled {
+  background: #000;
+}
+@media (max-width: 600px) {
+  .cube {
+    width: 22px;
+    height: 22px;
+    border-width: 2px;
+  }
+}
+
+/* ========== Footer ========== */
+.main-footer {
+  flex-shrink: 0;
+  width: 100%;
+  text-align: center;
+  color: #222;
+  font-size: 16px;
+  background: #fff;
+  z-index: 10;
+  padding: 10px 0;
+  margin: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
