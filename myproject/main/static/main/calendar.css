@@ -5,19 +5,18 @@ body {
   margin: 0;
   padding: 0;
 }
-
-.main-header {
+header {
   width: 100%;
-  background: #fff;
-  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .top-menu {
   display: flex;
   gap: 24px;
-  font-size: 18px;
-  position: absolute;
-  top: 60px;
-  left: 70px;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-left: 70px;
 }
 .menu-link {
   color: #222;
@@ -29,12 +28,18 @@ body {
   color: #000;
   text-decoration: underline;
 }
+/* Make header fixed and add top padding to body */
+.main-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 
 .calendar-title {
   text-align: center;
-  margin-top: 80px;
   font-size: 24px;
   font-weight: 600;
+  color: #222;
 }
 
 main {
@@ -90,7 +95,10 @@ main {
   border: 1px solid #000000;
   display: inline-block;
   margin: 0;
-  transition: background 0.15s;
+  transition: background 0.15s, border 0.15s;
+}
+.cube.today {
+  border: 2px solid #0080ff;
 }
 .cube.filled {
   background: #000;

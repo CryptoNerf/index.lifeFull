@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="{% static 'main/edit_day.css' %}">
 </head>
 <body>
-  <header>
+  <header class="main-header">
     <nav class="top-menu">
       <a href="{% url 'mood_grid' %}" class="menu-link">index.life</a>
       <a href="{% url 'account' %}" class="menu-link">account</a>
+      <a href="{% url 'what_is_index' %}" class="menu-link">what is index.life?</a>
     </nav>
   </header>
   <div class="center-content">
@@ -25,7 +26,7 @@
       <input type="hidden" name="rating" id="rating-input" value="{{ form.rating.value }}">
       <div><p style="font-size:20px;">my day comment</p></div>
       <div class="textarea-block">
-        {{ form.note }}
+    <textarea name="note" class="note-textarea" rows="6">{% if form.note.value %}{{ form.note.value }}{% endif %}</textarea>
         {% if form.note.errors %}
           <div class="field-errors">{% for err in form.note.errors %}{{ err }}{% endfor %}</div>
         {% endif %}
@@ -61,6 +62,17 @@
         fillCubes(selected, 'filled');
       });
     });
+      // Auto-expand textarea
+      const noteTextarea = document.querySelector('.note-textarea');
+      if (noteTextarea) {
+        noteTextarea.addEventListener('input', function() {
+          this.style.height = 'auto';
+          this.style.height = (this.scrollHeight) + 'px';
+        });
+        // Инициализация при загрузке
+        noteTextarea.style.height = 'auto';
+        noteTextarea.style.height = (noteTextarea.scrollHeight) + 'px';
+      }
   </script>
 </body>
 </html>

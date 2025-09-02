@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>why?</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/what_is_index.css' %}" />
+  </head>
+  <body>
+    <header class="main-header">
+    <nav class="top-menu">
+      <a href="{% url 'mood_grid' %}" class="menu-link">index.life</a>
+      <a href="{% url 'account' %}" class="menu-link">account</a>
+      <a href="{% url 'what_is_index' %}" class="menu-link">what is index.life?</a>
+    </nav>
+    </header>
+  <h1 style="margin-top:64px;">What is index.life?</h1>
+    </div>
+      <div class="lang-switch">
+      <a href="#" onclick="showLang('en'); return false;">en</a> /
+      <a href="#" onclick="showLang('ru'); return false;">ru</a>
+    </div>
+    <div id="text-block-en" class="text-block">
+      Index.life is a Django application created by Emile
+      Alexanyan so that he could better remember and understand himself. But
+      more importantly, index.life is an idea — the idea that it’s useful to
+      have a place where you write down what you think and feel about your day. <br />
+      Throughout my life, I often caught myself realizing that I couldn’t even
+      remember what had happened earlier that same week. One day replaces
+      another endlessly, and everything starts to feel the same. Index.life is a
+      way to look back at your notes and reflections about past days, to draw
+      conclusions and think about them. <br /> Of course, you don’t have to use
+      index.life for this. In fact, I believe index.life may not even be the
+      most convenient or reliable way to write about yourself. However, all my
+      previous attempts to keep diaries of my moods and thoughts failed — until
+      I developed index.life. Now, for several weeks already, I’ve been writing
+      daily about how I feel here. <br /> The calendar design is inspired by a heatmap.
+      I noticed that such a grid motivates me not to skip days and to fill in
+      every single one.
+    </div>
+    <div id="text-block-ru" class="text-block" style="display:none;">
+      Index.life — это Django-приложение, созданное Эмилем Алексаняном, чтобы лучше помнить и понимать себя. Но что важнее index.life это идея того, что полезно иметь место в котором вы пишете что думаете и чувствуете о своём дне.<br />
+      Часто в течении жизни я ловил себя на мысли, что не помню что было даже на этой неделе, день сменяет другой день и так бесконечно. Всё будто одинаковое. И index.life это возможность посмотреть на свои записки и оценки проходящих дней чтобы сделать выводы и подумать над этим.<br />
+      Безусловно заниматься этим можно не только в index.life. Скажу больше я думаю index.life это возможно не самый удобный и надёжный способ писать о себе. Однако все мои попытки вести дневники настроений и мыслей до разработки index.life были провальными. Зато теперь я уже несколько недель ежедневно пишу о своём состоянии тут.<br />
+      Дизайн календаря вдохновлён heatmap-сеткой. Я заметил, что такая сетка мотивирует меня не пропускать дни и заполнять каждый из них.
+    </div>
+    <footer class="main-footer">Copyright 2025 Émile Alexanyan</footer>
+    <script>
+    function showLang(lang) {
+      document.getElementById('text-block-en').style.display = (lang === 'en') ? '' : 'none';
+      document.getElementById('text-block-ru').style.display = (lang === 'ru') ? '' : 'none';
+    }
+    </script>
+  </body>
+</html>

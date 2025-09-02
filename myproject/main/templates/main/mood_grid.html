@@ -11,6 +11,7 @@
     <nav class="top-menu">
       <a href="{% url 'mood_grid' %}" class="menu-link">index.life</a>
       <a href="{% url 'account' %}" class="menu-link">account</a>
+      <a href="{% url 'what_is_index' %}" class="menu-link">what is index.life?</a>
     </nav>
   </header>
   <p class="calendar-title" style="font-weight: normal;">calendar<sup>2025</sup></p>
@@ -20,7 +21,7 @@
         <div class="month-block">
           <div class="month-grid">
             {% for day in month.days %}
-              <a href="{% url 'edit_day' day.date %}" class="cube {% if day.filled %}filled{% endif %}" title="{{ day.date }}"></a>
+              <a href="{% url 'edit_day' day.date %}" class="cube{% if day.filled %} filled{% endif %}{% if day.date == today %} today{% endif %}" title="{{ day.date }}"></a>
             {% endfor %}
           </div>
         </div>

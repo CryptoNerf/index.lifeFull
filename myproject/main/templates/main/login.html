@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Вход — index.life</title>
+  <meta charset="UTF-8">
+  <title>login</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'main/login.css' %}">
 </head>
 <body>
-  <div class="card">
-    <h1>Войти в index.life</h1>
-
-    <form method="post" novalidate>
+  <div class="center-content">
+    <p class="login-title">Welcome to index.life : )</p>
+    <form method="post" class="login-form">
       {% csrf_token %}
-
-      {% if form.non_field_errors %}
-        <div class="errors">
-          {% for err in form.non_field_errors %}{{ err }}<br>{% endfor %}
+      {% if form.errors %}
+        <div class="login-errors">
+          {% for field in form %}
+            {% for error in field.errors %}
+              <div>{{ error }}</div>
+            {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+            <div>{{ error }}</div>
+          {% endfor %}
         </div>
       {% endif %}
-
-      {{ form.username }}
-      {% if form.username.errors %}
-        <div class="field-errors">
-          {% for err in form.username.errors %}{{ err }}{% endfor %}
-        </div>
-      {% endif %}
-
-      {{ form.password }}
-      {% if form.password.errors %}
-        <div class="field-errors">
-          {% for err in form.password.errors %}{{ err }}{% endfor %}
-        </div>
-      {% endif %}
-
-      {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
-
-      <button class="btn" type="submit">Войти</button>
+      <input type="text" name="username" placeholder="login" class="login-input" value="{{ form.login.value|default_if_none:'' }}">
+      <input type="password" name="password" placeholder="password" class="login-input">
+      <button type="submit" class="login-btn">log in</button>
     </form>
-
-    <div class="muted">
-      Нет аккаунта? <a href="{% url 'register' %}">Зарегистрируйтесь</a>
+    <div class="login-register">
+      No account? Go <a href="{% url 'register' %}">reg</a>
     </div>
   </div>
+  <footer class="main-footer">Copyright 2025 Émile Alexanyan</footer>
 </body>
 </html>

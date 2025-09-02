@@ -1,84 +1,84 @@
 body {
   margin: 0;
   height: 100vh;
-  display: grid;
-  place-items: center;
-  background: #222222;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.card {
-  width: 360px;
-  background: #fff;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
-}
-
-h1 {
-  margin: 0 0 16px;
-  font-size: 22px;
-  color: #222;
-  text-align: center;
-}
-
-label {
-  display: block;
-  font-size: 13px;
-  color: #555;
-  margin-top: 8px;
-}
-
-.input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 8px 0 4px;
-}
-
-.btn {
-  width: 100%;
-  padding: 12px;
-  border: 0;
-  border-radius: 8px;
-  background: #222;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 8px;
-}
-
-.btn:hover {
-  filter: brightness(.95);
-}
-
-.muted {
-  margin-top: 12px;
-  font-size: 14px;
-  text-align: center;
-}
-
-.muted a {
-  text-decoration: none;
-}
-
-.errors,
-.field-errors {
-  font-size: 13px;
-  margin: 6px 0;
-}
-
-/* Центрирование элементов формы */
-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  font-family: "Times New Roman", Times, serif;
+  color: #000;
+}
+
+.center-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-form .input,
-form .btn,
-form .field-errors,
-form .errors {
-  align-self: center;
+.login-title {
+  margin-bottom: 24px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-input {
+  width: 200px;
+  padding: 6px 8px;
+  border: 1px solid #000;
+  outline: none;
+  font-size: 16px;
+}
+
+.login-btn {
+  width: 80px;
+  padding: 4px 0;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-btn:hover {
+  opacity: 0.9;
+}
+
+.login-register {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.login-register a {
+  color: blue;
+  text-decoration: none;
+}
+
+.login-errors {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.main-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  color: #222;
+  font-size: 16px;
+  background: #fff;
+  z-index: 10;
+  padding: 10px 0;
 }
