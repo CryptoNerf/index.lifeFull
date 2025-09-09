@@ -17,7 +17,7 @@ services:
     networks:
       - app-network
 
-  web:
+web:
     build: .
     ports:
       - "8000:8000"
@@ -30,6 +30,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    working_dir: /app/myproject
     command: sh -c "python manage.py migrate && gunicorn myproject.wsgi:application --bind 0.0.0.0:8000"
     dns:
       - 8.8.8.8
