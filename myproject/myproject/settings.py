@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS: list[str] = ['127.0.0.1', 'localhost', 'xindex.life', 'www.xindex.life']
 
-CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1:8000', 'https://localhost:8000', 'https://xindex.life', 'https://www.xindex.life']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'http://localhost:8000', 'https://xindex.life', 'https://www.xindex.life']
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
