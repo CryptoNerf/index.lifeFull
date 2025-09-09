@@ -28,8 +28,15 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-rnk-a&_s_(m&$f(a%8d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS: list[str] = ['127.0.0.1', 'localhost', 'xindex.life', 'www.xindex.life']
 
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1:8000', 'https://localhost:8000', 'https://xindex.life', 'https://www.xindex.life']
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
 
 # Application definition
 
@@ -135,6 +142,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SESSION_COOKIE_AGE = 86400 # 30 дней
+SESSION_SAVE_EVERY_REQUEST = True # продлевать сессию при активности
+
+AUTH_USER_MODEL = 'auth.User'  # используем встроенную модель пользователя
 
 LOGIN_URL = '/login/'  # куда перекидывать, если не авторизован
 LOGIN_REDIRECT_URL = '/'  # куда отправлять после входа
