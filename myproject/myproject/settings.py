@@ -133,6 +133,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/app/static'
+STATICFILES_DIRS = [
+    BASE_DIR / "myproject" / "main" / "static",
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/app/media'
