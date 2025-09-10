@@ -132,7 +132,6 @@ body {
 
 @media (max-width: 600px) {
   .main-footer {
-    font-size: 15px;
     bottom: 8px;
   }
 }

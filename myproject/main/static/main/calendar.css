@@ -136,16 +136,12 @@ main {
 
 /* ========== Footer ========== */
 .main-footer {
-  flex-shrink: 0;
   width: 100%;
+  margin: 20px 0 0 0;
   text-align: center;
   color: #222;
   font-size: 16px;
   background: #fff;
-  z-index: 10;
   padding: 10px 0;
-  margin: 0;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  flex-shrink: 0;
 }
